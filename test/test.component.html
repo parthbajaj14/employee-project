@@ -1,0 +1,117 @@
+<!-- <div>
+
+    <p>
+
+        This is a sample angular component!
+
+    </p>
+
+    <h1>{{pageheader}}</h1>
+
+    <div *ngIf="emp" class="wrapper">
+
+        <div *ngFor="let e of emp">
+
+          {{ e.emp }}
+
+        </div>
+
+      </div>
+
+      <br>
+
+      <button (click)="onSave($event)">Save</button>
+
+</div>
+
+<br><br>
+
+<input [(ngModel)]="twoWayData" type="text">
+
+<br><br>
+
+<h2>you entered the data:  {{twoWayData}}</h2>
+
+<br><br>
+
+<label for="name">Name: </label>
+
+<input id="name" type="text" [formControl]="name">
+
+<br><br>
+
+<p>Value: {{ name.value }}</p>
+
+<br><br> -->
+
+<form [formGroup]="employeeForm" (ngSubmit) = "onClickSave(employeeForm.value)" class="form-padding">
+
+    <h2>Employee Info</h2>
+  
+  <table>
+  
+    <tr>
+  
+    <td><label for="id" class="label-size">EmpId: </label></td>
+  
+    <td class="textbox-padding"><input id="employeeid" type="text" class="inputbox-style" formControlName="employeeId"></td>
+  
+    </tr><br>
+  
+    <tr>
+  
+    <td><label for="ename" class="label-size">EmployeeName: </label></td>
+  
+   <td class="textbox-padding"><input id="employeename" type="text" class="inputbox-style" formControlName="employeeName"></td>
+  
+   </tr><br>
+  
+    <tr>
+  
+     <td> <label for="address" class="label-size">Address: </label></td>
+  
+    <td class="textbox-padding"><input id="address" type="text" class="inputbox-style" formControlName="address"></td>
+  
+  </tr><br>
+  
+  <tr>
+  
+    <td><label for="department" class="label-size">Department: </label></td>
+  
+  <td class="textbox-padding"><input id="department" type="text" class="inputbox-style" formControlName="department"></td>
+  
+  </tr>
+  
+  <tr></tr><br><br>
+  
+  <tr>
+  
+    <td></td>
+  
+    <td class="textbox-padding"> <input type = "submit" value = "Save" class="btn-style">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+    <input type="button" class="btn-style" (click)='GetEmployee()' value="Get">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+    <input type="button" class="btn-style" (click)='DeleteEmployee()' value="Delete">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  
+    <input type="button" class="btn-style" (click)='updateEmployee(employeeForm.value)' value="Edit">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" class="btn-style" (click)='view()' value="View All">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" class="btn-style" (click)='hide()' value="Hide All">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+  
+  </tr>
+  
+  </table>
+  
+  </form><br><br><br>
+  <table *ngIf="show" class="resulttable form-padding">
+    <tr><th>EmployeeId</th>
+    <th>EmployeeName</th>
+    <th>Address</th>
+    <th>Department</th></tr>
+    <tr *ngFor="let e of employeeList">
+      <td>{{e.employeeId}}</td>
+      <td>{{e.employeeName}}</td>
+      <td>{{e.address}}</td>
+      <td>{{e.department}}</td>
+    </tr>
+  </table>
